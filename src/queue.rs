@@ -25,7 +25,7 @@ impl<T, const C: usize> Queue<T, C> {
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let queue = Queue::<i32, 4>::new();
     /// assert_eq!(queue.capacity(), 4);
     /// ```
@@ -35,11 +35,11 @@ impl<T, const C: usize> Queue<T, C> {
     }
 
     /// Returns the number of elements in the queue.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.len(), 0);
     /// queue.enqueue(1);
@@ -51,11 +51,11 @@ impl<T, const C: usize> Queue<T, C> {
     }
 
     /// Returns `true` if the queue contains no elements.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.is_empty(), true);
     /// queue.enqueue(1);
@@ -67,11 +67,11 @@ impl<T, const C: usize> Queue<T, C> {
     }
 
     /// Returns `true` if the queue cannot contain any more elements.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.is_full(), false);
     /// queue.enqueue(1);
@@ -85,11 +85,11 @@ impl<T, const C: usize> Queue<T, C> {
     /// Returns a reference to the element at the given index relative
     /// to the start of the queue.
     /// Returns `None` if there is no element at the position.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.get(0), None);
     /// queue.enqueue(1);
@@ -119,11 +119,11 @@ impl<T, const C: usize> Queue<T, C> {
     }
 
     /// Returns a reference to the underlying storage of the queue.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 3>::new();
     /// assert_eq!(queue.as_slice(), &[None, None, None]);
     /// ```
@@ -134,11 +134,11 @@ impl<T, const C: usize> Queue<T, C> {
 
     /// Insert an element at the back of the queue.
     /// Returns `Err(element)` if the queue is full.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 3>::new();
     /// assert_eq!(queue.as_slice(), &[None, None, None]);
     /// let _ = queue.enqueue(1);
@@ -158,11 +158,11 @@ impl<T, const C: usize> Queue<T, C> {
 
     /// Take an element out of the front of the queue.
     /// Returns `None` if the queue is empty.
-    /// 
+    ///
     /// # Example
     /// ```
     /// use fundamental::Queue;
-    /// 
+    ///
     /// let mut queue = Queue::<i32, 3>::new();
     /// queue.enqueue(1);
     /// queue.enqueue(2);
