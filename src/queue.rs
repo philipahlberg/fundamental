@@ -19,6 +19,12 @@ impl<T: Copy, const C: usize> Queue<T, C> {
     }
 }
 
+impl<T: Copy, const C: usize> Default for Queue<T, C> {
+    fn default() -> Self {
+        Queue::new()
+    }
+}
+
 impl<T, const C: usize> Queue<T, C> {
     /// Returns the number of elements the queue can hold.
     ///
