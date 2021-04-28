@@ -1,0 +1,15 @@
+[package]
+name = "fundamental"
+version = "0.0.0"
+authors = ["philipahlberg <philipahlberg@gmail.com>"]
+edition = "2018"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/philipahlberg/fundamental"
+homepage = "https://github.com/philipahlberg/fundamental"
+documentation = "https://docs.rs/fundamental"
+categories = ["rust-patterns", "data-structures"]
+keywords = ["fundamental", "data", "structures"]
+description = "A collection of fundamental data structures"
+
+[dependencies]
