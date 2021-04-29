@@ -7,18 +7,6 @@ pub struct Queue<T, const C: usize> {
     length: usize,
 }
 
-impl<T: Copy, const C: usize> Queue<T, C> {
-    /// Constructs a new, empty `Queue<T, C>`.
-    pub fn new() -> Self {
-        let elements: [Option<T>; C] = [None; C];
-        Self {
-            elements,
-            head: 0,
-            length: 0,
-        }
-    }
-}
-
 impl<T: Copy, const C: usize> Default for Queue<T, C> {
     fn default() -> Self {
         Queue::new()
@@ -26,6 +14,26 @@ impl<T: Copy, const C: usize> Default for Queue<T, C> {
 }
 
 impl<T, const C: usize> Queue<T, C> {
+    /// Constructs a new, empty `Queue<T, C>`.
+    ///
+    /// # Example
+    /// ```
+    /// use fundamental::Queue;
+    ///
+    /// let queue = Queue::<i32, 4>::new();
+    /// ```
+    pub fn new() -> Self
+    where
+        T: Copy,
+    {
+        let elements: [Option<T>; C] = [None; C];
+        Self {
+            elements,
+            head: 0,
+            length: 0,
+        }
+    }
+
     /// Returns the number of elements the queue can hold.
     ///
     /// # Example
