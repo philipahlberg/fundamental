@@ -56,7 +56,7 @@ impl<T, const C: usize> Queue<T, C> {
     ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.len(), 0);
-    /// queue.enqueue(1);
+    /// let _ = queue.enqueue(1);
     /// assert_eq!(queue.len(), 1);
     /// ```
     #[inline]
@@ -72,7 +72,7 @@ impl<T, const C: usize> Queue<T, C> {
     ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.is_empty(), true);
-    /// queue.enqueue(1);
+    /// let _ = queue.enqueue(1);
     /// assert_eq!(queue.is_empty(), false);
     /// ```
     #[inline]
@@ -88,7 +88,7 @@ impl<T, const C: usize> Queue<T, C> {
     ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.is_full(), false);
-    /// queue.enqueue(1);
+    /// let _ = queue.enqueue(1);
     /// assert_eq!(queue.is_full(), true);
     /// ```
     #[inline]
@@ -106,7 +106,7 @@ impl<T, const C: usize> Queue<T, C> {
     ///
     /// let mut queue = Queue::<i32, 1>::new();
     /// assert_eq!(queue.get(0), None);
-    /// queue.enqueue(1);
+    /// let _ = queue.enqueue(1);
     /// assert_eq!(queue.get(0), Some(&1));
     /// ```
     #[inline]
@@ -154,11 +154,10 @@ impl<T, const C: usize> Queue<T, C> {
     /// use fundamental::Queue;
     ///
     /// let mut queue = Queue::<i32, 3>::new();
-    /// assert_eq!(queue.as_slice(), &[None, None, None]);
-    /// let _ = queue.enqueue(1);
-    /// assert_eq!(queue.as_slice(), &[Some(1), None, None]);
-    /// let _ = queue.enqueue(2);
-    /// assert_eq!(queue.as_slice(), &[Some(1), Some(2), None]);
+    /// assert_eq!(queue.enqueue(1), Ok(()));
+    /// assert_eq!(queue.enqueue(2), Ok(()));
+    /// assert_eq!(queue.enqueue(3), Ok(()));
+    /// assert_eq!(queue.enqueue(4), Err(4));
     /// ```
     #[inline]
     pub fn enqueue(&mut self, element: T) -> Result<(), T> {
@@ -178,9 +177,9 @@ impl<T, const C: usize> Queue<T, C> {
     /// use fundamental::Queue;
     ///
     /// let mut queue = Queue::<i32, 3>::new();
-    /// queue.enqueue(1);
-    /// queue.enqueue(2);
-    /// queue.enqueue(3);
+    /// let _ = queue.enqueue(1);
+    /// let _ = queue.enqueue(2);
+    /// let _ = queue.enqueue(3);
     /// assert_eq!(queue.dequeue(), Some(1));
     /// assert_eq!(queue.dequeue(), Some(2));
     /// assert_eq!(queue.dequeue(), Some(3));

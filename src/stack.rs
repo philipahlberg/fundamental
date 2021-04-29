@@ -54,7 +54,7 @@ impl<T, const C: usize> Stack<T, C> {
     ///
     /// let mut stack = Stack::<i32, 1>::new();
     /// assert_eq!(stack.len(), 0);
-    /// stack.push(1);
+    /// let _ = stack.push(1);
     /// assert_eq!(stack.len(), 1);
     /// ```
     #[inline]
@@ -70,7 +70,7 @@ impl<T, const C: usize> Stack<T, C> {
     ///
     /// let mut stack = Stack::<i32, 1>::new();
     /// assert_eq!(stack.is_empty(), true);
-    /// stack.push(1);
+    /// let _ = stack.push(1);
     /// assert_eq!(stack.is_empty(), false);
     /// ```
     #[inline]
@@ -86,7 +86,7 @@ impl<T, const C: usize> Stack<T, C> {
     ///
     /// let mut stack = Stack::<i32, 1>::new();
     /// assert_eq!(stack.is_full(), false);
-    /// stack.push(1);
+    /// let _ = stack.push(1);
     /// assert_eq!(stack.is_full(), true);
     /// ```
     #[inline]
@@ -103,7 +103,7 @@ impl<T, const C: usize> Stack<T, C> {
     ///
     /// let mut stack = Stack::<i32, 1>::new();
     /// assert_eq!(stack.get(0), None);
-    /// stack.push(1);
+    /// let _ = stack.push(1);
     /// assert_eq!(stack.get(0), Some(&1));
     /// ```
     #[inline]
@@ -142,11 +142,10 @@ impl<T, const C: usize> Stack<T, C> {
     /// use fundamental::Stack;
     ///
     /// let mut stack = Stack::<i32, 3>::new();
-    /// assert_eq!(stack.as_slice(), &[None, None, None]);
-    /// let _ = stack.push(1);
-    /// assert_eq!(stack.as_slice(), &[Some(1), None, None]);
-    /// let _ = stack.push(2);
-    /// assert_eq!(stack.as_slice(), &[Some(1), Some(2), None]);
+    /// assert_eq!(stack.push(1), Ok(()));
+    /// assert_eq!(stack.push(2), Ok(()));
+    /// assert_eq!(stack.push(3), Ok(()));
+    /// assert_eq!(stack.push(4), Err(4));
     /// ```
     #[inline]
     pub fn push(&mut self, element: T) -> Result<(), T> {
@@ -166,9 +165,9 @@ impl<T, const C: usize> Stack<T, C> {
     /// use fundamental::Stack;
     ///
     /// let mut stack = Stack::<i32, 3>::new();
-    /// stack.push(1);
-    /// stack.push(2);
-    /// stack.push(3);
+    /// let _ = stack.push(1);
+    /// let _ = stack.push(2);
+    /// let _ = stack.push(3);
     /// assert_eq!(stack.pop(), Some(3));
     /// assert_eq!(stack.pop(), Some(2));
     /// assert_eq!(stack.pop(), Some(1));
